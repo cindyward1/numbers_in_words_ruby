@@ -27,7 +27,7 @@ August 2, 2014
 ### Licensing terms
 Unlicense
 
-### Files included in this repository
+### Files included in this repository (not including hidden files used by git)
 * LICENSE.md : Licensing terms (Unlicense)
 * README.md : This file (written by author)
 * Directory lib : numbers_in_words.rb (written by author, for execution using rspec), numbers_in_words_ruby.rb (written by author, for execution using ruby)
