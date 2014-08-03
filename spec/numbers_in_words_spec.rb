@@ -32,8 +32,24 @@ describe ("numbers_in_words") do
 		expect(numbers_in_words("1")).to eq "one"
 	end
 
-	it("returns the correct string for numbers 1-9") do
-		expect(numbers_in_words("9")).to eq "nine"
+	it("returns the correct string for number 10") do
+		expect(numbers_in_words("10")).to eq "ten"
+	end
+
+	it("returns the correct string for number 11-19") do
+		expect(numbers_in_words("15")).to eq "fifteen"
+	end
+
+	it("returns the correct string for number 20-99") do
+		expect(numbers_in_words("20")).to eq "twenty"
+	end
+
+	it("returns the correct string for number 99") do
+		expect(numbers_in_words("99")).to eq "ninety nine"
+	end
+
+it("returns the correct string for number 100") do
+		expect(numbers_in_words("100")).to eq "one hundred"
 	end
 
 end
