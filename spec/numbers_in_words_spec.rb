@@ -48,8 +48,44 @@ describe ("numbers_in_words") do
 		expect(numbers_in_words("99")).to eq "ninety nine"
 	end
 
-it("returns the correct string for number 100") do
+	it("returns the correct string for number 100") do
 		expect(numbers_in_words("100")).to eq "one hundred"
 	end
+
+	it("returns the correct string for number 100") do
+		expect(numbers_in_words("101")).to eq "one hundred one"
+	end
+
+	it("returns the correct string for number 999") do
+		expect(numbers_in_words("999")).to eq "nine hundred ninety nine"
+	end
+
+	it("returns the correct string for number 1000") do
+		expect(numbers_in_words("1000")).to eq "one thousand"
+	end
+
+	it("returns the correct string for number 1001") do
+		expect(numbers_in_words("1001")).to eq "one thousand one"
+	end
+
+	it("returns the correct string for number 9999") do
+		expect(numbers_in_words("9999")).to eq "nine thousand nine hundred ninety nine"
+	end
+
+	it("returns the correct string for number 100,000") do
+		expect(numbers_in_words("100000")).to eq "one hundred thousand"
+	end
+
+	it("returns the correct string for number 999,999") do
+		expect(numbers_in_words("999999")).to eq "nine hundred ninety nine thousand nine hundred ninety nine"
+	end
+
+	it("returns the correct string for number 1,000,000,000,000") do
+		expect(numbers_in_words("1000000000000")).to eq "one trillion"
+	end
+
+	it("returns the correct string for number 999,999,999,999,999") do
+		expect(numbers_in_words("999999999999999")).to eq "nine hundred ninety nine trillion nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"
+	end	
 
 end
