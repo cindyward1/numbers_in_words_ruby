@@ -22,33 +22,54 @@ def splitter(input_number_string)
 end
 
 
-def numbers_in_words(input_number_string)
+def numbers_in_words
 
 	number_words = { 	0=>"", 1=>"one", 2=>"two", 3=>"three", 4=>"four", 5=>"five", 6=>"six", 7=>"seven", 8=>"eight", 9=>"nine",
-									10=>"ten", 11=>"eleven", 12=>"twelve", 13=>"thirteen", 14=>"fourteen", 15=>"fifteen", 16=>"sixteen",
-									17=>"seventeen", 18=>"eighteen", 19=>"nineteen", 20=>"twenty", 30=>"thirty", 40=>"forty", 50=>"fifty", 
-									60=>"sixty", 70=>"seventy", 80=>"eighty", 90=>"ninety" }
+										10=>"ten", 11=>"eleven", 12=>"twelve", 13=>"thirteen", 14=>"fourteen", 15=>"fifteen", 16=>"sixteen",
+										17=>"seventeen", 18=>"eighteen", 19=>"nineteen", 20=>"twenty", 30=>"thirty", 40=>"forty", 50=>"fifty", 
+										60=>"sixty", 70=>"seventy", 80=>"eighty", 90=>"ninety" }
 
 	power_words = { 1=>"", 100=>"hundred", 1000=>"thousand", 1000000=>"million", 1000000000=>"billion", 
 									1000000000000=>"trillion"}
 
+	puts "\n"
+	puts "*" * 43
+	puts "Welcome to the Numbers in Words Ruby method"
+	puts "*" * 43
+	puts "\n"
+
+	input_number_string = ""
+
 	while input_number_string != "x"
 
+		puts "Please enter a number to translate into words. The number may range between 0 and 999,999,999,999,999."
+		puts "Spaces, commas, underscores, and trailing alphanumeric strings will be ignored: 1fsdfas will yield 'one'."
+		puts "Alphabetic characters and any embedded numbers will be ignored: ldkj9ghf will yield '' (nothing)."
+		puts "A negative number will return its absolute value: -1 will yield 'one'."
+		puts "A real number will return its integer portion: 1.9999 will yield 'one'."
+		puts "You may enter 'x' to exit the method."
+		puts "\n"
+	
+		input_number_string = gets.chomp.downcase
 		if input_number_string != "x"
 			input_number_string.delete!("," " " "_")
 			input_number = input_number_string.to_i.abs
 			output_words_string = ""
 			if input_number >= 1e15
-				return "input number too big"
+				puts "#{input_number.to_s} is one quadrillion or greater; please try again with a smaller number or enter 'x' to exit the method"
+				puts "\n"
 			elsif input_number == 0
 				if input_number_string.slice(0,1) == "0" # check for special 'zero' case
-					return "zero"
+					puts "Input number = #{input_number_string.slice(0,1)}, output number in words = zero"
+					puts "\n"
 				else
-					return output_words_string # exit the program if bad input in the spec
+					puts "Input number = #{input_number_string}, output number in words = #{output_words_string}"
+					puts "\n"
 				end
 			else
 				input_number_string = input_number.to_s
 				number_2d_array = splitter(input_number_string)
+				puts "number_2d_array = " + number_2d_array.to_s
 				current_magnitude = 10 ** ((number_2d_array.length * 3) - 1)
 				number_2d_array.each do |power_array|
 					current_power = power_array.length - 1
@@ -100,8 +121,14 @@ def numbers_in_words(input_number_string)
 					end
 				end
 				output_words_string = output_words_string.rstrip 
-				return output_words_string
+				puts "Input number = #{input_number_string}, output number in words = #{output_words_string}"
+				puts "\n"
 			end
 		end
 	end
+	puts "\n"
+	puts "Thanks for using the Numbers in Words Ruby method"
+	puts "\n"
 end
+
+numbers_in_words

@@ -88,4 +88,40 @@ describe ("numbers_in_words") do
 		expect(numbers_in_words("999999999999999")).to eq "nine hundred ninety nine trillion nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"
 	end	
 
+	it("returns the correct string for number 999,999,999,999,999, ignoring the commas") do
+		expect(numbers_in_words("999,999,999,999,999")).to eq "nine hundred ninety nine trillion nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"
+	end
+
+	it("returns the correct string for number 999 999 999 999 999, ignoring the spaces") do
+		expect(numbers_in_words("999 999 999 999 999")).to eq "nine hundred ninety nine trillion nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"
+	end
+
+	it("returns the correct string for number 999_999_999_999_999, ignoring the spaces") do
+		expect(numbers_in_words("999_999_999_999_999")).to eq "nine hundred ninety nine trillion nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"
+	end
+
+	it("returns zero if 0 is input") do
+		expect(numbers_in_words("0")).to eq "zero"
+	end
+
+	it("truncates all training alphanumeric strings") do
+		expect(numbers_in_words("03abcde")).to eq "three"
+	end
+
+	it("returns the absolute value of a negative number") do
+		expect(numbers_in_words("-3")).to eq "three"
+	end
+	
+	it("returns the integer portion of a real number") do
+		expect(numbers_in_words("1.9999")).to eq "one"
+	end
+
+	it("returns nothing for an alphanumeric string (except 'x' which will exit the program") do
+		expect(numbers_in_words("edf;a4dfja;f935ja;dl")).to eq ""
+	end
+
+	it("returns an error if a number greater than or equal to 1 quadrillion is input") do
+		expect(numbers_in_words("1000000000000000")).to eq "input number too big"
+	end
+
 end
