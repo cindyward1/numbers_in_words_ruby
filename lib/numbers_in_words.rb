@@ -50,6 +50,7 @@ def numbers_in_words(input_number_string)
 				input_number_string = input_number.to_s
 				number_2d_array = splitter(input_number_string)
 				current_magnitude = 10 ** ((number_2d_array.length * 3) - 1)
+
 				number_2d_array.each do |power_array|
 					current_power = power_array.length - 1
 					is_teens = false
@@ -59,7 +60,7 @@ def numbers_in_words(input_number_string)
 						if current_power == 2
 							if number > 0
 								output_words_string += (number_words.fetch(number) + " ")
-								output_words_string += (power_words.fetch(10 ** current_power) + " ")
+								output_words_string += (power_words.fetch(100) + " ")
 							end
 							sum_power_array_num += number  # determines if the entire block of 3 is zeroes
 							current_power -= 1
@@ -99,7 +100,7 @@ def numbers_in_words(input_number_string)
 						end
 					end
 				end
-				output_words_string = output_words_string.rstrip 
+				output_words_string.rstrip! 
 				return output_words_string
 			end
 		end

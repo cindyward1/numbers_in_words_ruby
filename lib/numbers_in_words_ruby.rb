@@ -42,7 +42,7 @@ def numbers_in_words
 
 	while input_number_string != "x"
 
-		puts "Please enter a number to translate into words. The number may range between 0 and 999,999,999,999,999."
+		puts "Please enter a decimal number to translate into words. The number may range from 0 to 999,999,999,999,999."
 		puts "Spaces, commas, underscores, and trailing alphanumeric strings will be ignored: 1fsdfas will yield 'one'."
 		puts "Alphabetic characters and any embedded numbers will be ignored: ldkj9ghf will yield '' (nothing)."
 		puts "A negative number will return its absolute value: -1 will yield 'one'."
@@ -56,21 +56,24 @@ def numbers_in_words
 			input_number = input_number_string.to_i.abs
 			output_words_string = ""
 			if input_number >= 1e15
-				puts "#{input_number.to_s} is one quadrillion or greater; please try again with a smaller number or enter 'x' to exit the method"
+				puts "#{input_number.to_s} is one quadrillion or greater."
+				puts "Please try again with a smaller number or enter 'x' to exit."
 				puts "\n"
 			elsif input_number == 0
 				if input_number_string.slice(0,1) == "0" # check for special 'zero' case
-					puts "Input number = #{input_number_string.slice(0,1)}, output number in words = zero"
+					puts "Input number = #{input_number_string.slice(0,1)}." 
+					puts "Output number in words = zero."
 					puts "\n"
 				else
-					puts "Input number = #{input_number_string}, output number in words = #{output_words_string}"
+					puts "Input number = #{input_number_string}."
+					puts "Output number in words = #{output_words_string}."
 					puts "\n"
 				end
 			else
 				input_number_string = input_number.to_s
 				number_2d_array = splitter(input_number_string)
-				puts "number_2d_array = " + number_2d_array.to_s
 				current_magnitude = 10 ** ((number_2d_array.length * 3) - 1)
+
 				number_2d_array.each do |power_array|
 					current_power = power_array.length - 1
 					is_teens = false
@@ -80,9 +83,9 @@ def numbers_in_words
 						if current_power == 2
 							if number > 0
 								output_words_string += (number_words.fetch(number) + " ")
-								output_words_string += (power_words.fetch(10 ** current_power) + " ")
+								output_words_string += (power_words.fetch(100) + " ")
 							end
-							sum_power_array_num += number  # determines if the entire block of 3 is zeroes
+							sum_power_array_num += number  # used to determine if the entire block of 3 is zeroes
 							current_power -= 1
 							current_magnitude /= 10
 
@@ -120,14 +123,15 @@ def numbers_in_words
 						end
 					end
 				end
-				output_words_string = output_words_string.rstrip 
-				puts "Input number = #{input_number_string}, output number in words = #{output_words_string}"
+				output_words_string.rstrip!
+				puts "Input number = #{input_number_string}."
+				puts "Output number in words = #{output_words_string}."
 				puts "\n"
 			end
 		end
 	end
 	puts "\n"
-	puts "Thanks for using the Numbers in Words Ruby method"
+	puts "Thanks for using the Numbers in Words Ruby method!"
 	puts "\n"
 end
 

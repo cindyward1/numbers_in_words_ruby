@@ -4,7 +4,7 @@ numbers_in_words: A Ruby method to translate numbers in numeric form into writte
 ### About
 This project is for the [Ruby TDD assessment](http://www.learnhowtoprogram.com/lessons/ruby-tdd-assessment) at [Epicodus](http://www.epicodus.com/) Summer Session 2014.
 
-The project is a [a Ruby method that translates numbers input in numeric form into output written words](http://www.learnhowtoprogram.com/lessons/numbers-in-words-in-ruby). For example, it translates 384 into "three hundred eighty four". The largest number it will handle is 999,999,999,999 = a quadrillion minus 1.  
+The project is a [a Ruby method that translates numbers input in numeric form into output written words](http://www.learnhowtoprogram.com/lessons/numbers-in-words-in-ruby). For example, it translates 384 into "three hundred eighty four". The range of numbers it will handle is 0 to 999,999,999,999 (a quadrillion minus 1). Entering a larger number will return a message that the number is too large. Spaces, commas, underscores, and trailing alphanumeric strings will be ignored: 1fsdfas will yield 'one'. Alphabetic characters and any embedded numbers will be ignored: ldkj9ghf will yield '' (nothing). A negative number will return its absolute value: -1 will yield 'one'. A real number will return its integer portion: 1.9999 will yield 'one'. To exit the method, enter "x".
 
 ### Setup
 Clone this repository into a directory named (your working directory)/numbers_in_words_ruby. You must have Ruby 2.1.2 and/or rspec 3.0.3 already installed. Run the iMac's terminal application and change the working directory to (your working directory)/numbers_in_words. You can execute an interactive version of the the method using [the Ruby interpreter](https://www.ruby-lang.org/en/downloads/) by entering the following string into terminal application $: "ruby ./lib/numbers_in_words_ruby.rb". You can also test a non-interactive version of the method against its test cases found in (your working directory)/numbers_in_words_ruby/spec/numbers_in_words_spec.rb using [rspec](https://rubygems.org/gems/rspec) by entering the following string into terminal application $: "rspec" (this command will automatically execute any .rb file it finds in ./spec/). 
@@ -19,7 +19,7 @@ Please note that this repository has only been tested with [Google Chrome browse
 Cynthia "Cindy" Ward
 
 ### Date Written
-August 2, 2014
+August 3, 2014
 
 ### Date Last Modified
 August 3, 2014
